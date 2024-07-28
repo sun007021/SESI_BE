@@ -39,3 +39,7 @@ tomli==2.0.1
 typing_extensions==4.9.0
 urllib3==2.0.4
 uvicorn==0.27.1
+sqlalchemy
+psycopg2
+asyncpg
+alembic
