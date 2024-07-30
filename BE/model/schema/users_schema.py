@@ -12,6 +12,7 @@ class Users(BaseModel):
     sex: str
     birth: date
     address: str
+    phone: str
 
     @field_validator('sex')
     def sex_validator(cls, v):
@@ -19,6 +20,10 @@ class Users(BaseModel):
             raise ValueError(
                 'sex must be one of M, W')
         return v
+
+    class Config:
+        from_attributes = True
+
 
 class UserCreated(BaseModel):
     """User Create Model(Output)"""

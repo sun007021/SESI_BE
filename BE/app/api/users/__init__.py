@@ -5,7 +5,7 @@ from app.route import GzipRoute
 
 api = APIRouter(
     route_class=GzipRoute,
-    tags=['v1']
+    tags=['users']
 )
 
-from . import sample
+from . import users

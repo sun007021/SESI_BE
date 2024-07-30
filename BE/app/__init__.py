@@ -7,7 +7,7 @@ from app import api, error_handler
 # Routers
 from app.api.auth import auth
 from app.api.template import api as template
-from app.api.v1 import api as api_v1
+from app.api.users import api as api_v1
 
 # Middleware
 from fastapi.middleware.cors import CORSMiddleware
