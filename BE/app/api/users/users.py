@@ -13,9 +13,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
     '/users',
     summary="sign_up",
     response_model=CREATED[users_schema.UserCreated],
-    status_code=201,
 )
-async def user_create(
+async def user_create(  # 00-01 sign up
     user: users_schema.Users,
     db: AsyncSession = Depends(get_db)
 ):

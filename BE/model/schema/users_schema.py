@@ -28,3 +28,8 @@ class Users(BaseModel):
 class UserCreated(BaseModel):
     """User Create Model(Output)"""
     email: str
+
+
+class UserGet(BaseModel):
+    email: Optional[str] = None
+    phone: Optional[str] = None

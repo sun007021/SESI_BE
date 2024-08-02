@@ -8,6 +8,7 @@ from app.response import (
 )
 from jose import JWTError
 from loguru import logger
+from app.exception import Duplicated_User
 
 
 def init_app(app: FastAPI):
@@ -30,7 +31,7 @@ def init_app(app: FastAPI):
         for e in errors:
             if e.get('ctx'):
                 e['ctx'] = str(e['ctx'])
-        
+
         return unprocessable_entity(detail, errors)
 
     @app.exception_handler(JWTError)
@@ -55,4 +56,14 @@ def init_app(app: FastAPI):
         return ORJSONResponse(
             {'msg': 'internal_server_error'},
             status_code=500,
+        )
+
+    @app.exception_handler(Duplicated_User)
+    async def already_exists_user_handler(
+        request: Request,
+        exc: HTTPException
+    ):
+        return ORJSONResponse(
+            {'msg': 'already_exists_user'},
+            status_code=400,
         )
