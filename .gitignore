@@ -162,7 +162,3 @@ cython_debug/
 #.idea/
 .devcontainer/
 
-#alembic migrations
-migrations/
-alembic.ini
-alembic/
