@@ -2,12 +2,12 @@
 if [ "$1" = "run" ] ; then
     uvicorn main:application \
     --reload \
-    --port 5000 --env-file dev.env \
+    --port 80 --env-file dev.env \
     --log-config uvicorn_log_config.yaml
 elif [ "$1" = "prod-run" ] ; then
     uvicorn main:application \
-    --port 5000 \
-    --env-file prod.env \
+    --port 80 \
+    --env-file dev.env \
     --host=0.0.0.0 \
     --log-config uvicorn_log_config.yaml
 elif [ "$1" = "test" ] ; then
